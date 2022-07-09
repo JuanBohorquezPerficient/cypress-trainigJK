@@ -1,0 +1,25 @@
+{
+  "name": "cypress-training",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanBohorquezPerficient/cypress-trainigJK.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "cypress"
+  ],
+  "author": "Juan Bohorquez juan.bohorquezm@perficient.com JuanBohorquezPerficient",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuanBohorquezPerficient/cypress-trainigJK/issues"
+  },
+  "homepage": "https://github.com/JuanBohorquezPerficient/cypress-trainigJK#readme"
+}
