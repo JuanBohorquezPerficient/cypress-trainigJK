@@ -11,12 +11,12 @@ describe("Buy a t-shirt", () => {
 
     // Debes completar la prueba ...
 
-     cy.get('#SubmitLogin > span').click();
-     cy.get('.cart_navigation > .button > span').click();
-     cy.get('#cgv').click();
-     cy.get('.cart_navigation > .button > span').click();
-     cy.get('.bankwire').click();
-     cy.get('#cart_navigation > .button > span').click();
-     cy.get("#center_column > div > p > strong").should("have.text", "Your order on My Store is complete.");
+    cy.get("#SubmitLogin > span").click();
+    cy.get(".cart_navigation > .button > span").click();
+    cy.get("#cgv").click();
+    cy.get(".cart_navigation > .button > span").click();
+    cy.get(".bankwire").click();
+    cy.get("#cart_navigation > .button > span").click();
+    cy.get("#center_column > div > p > strong").should("have.text", "Your order on My Store is complete.");
   });
 });
