@@ -1,3 +1,4 @@
+
 import {AddressStepPage, MenuContentPage} from "../page/index";
 import {ProducsList, ShippingStepPage} from "../page/index";
 import { ShoppingCart, PaymentStepPage } from "../page/index";
@@ -27,5 +28,6 @@ describe("Buy a t-shirt", () => {
     paymentStepPage.clickPayment();
     paymentStepPage.clickConfirmOrderBtn();
     paymentStepPage.assertParagraph();
+
   });
 });
