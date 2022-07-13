@@ -1,7 +1,7 @@
 import {AddressStepPage, MenuContentPage} from "../page/index";
 import {ProducsList, ShippingStepPage} from "../page/index";
-import { ShoppingCart, PaymentStepPage } from "../page/index";
-import { LoginPage } from "../page/index";
+import {ShoppingCart, PaymentStepPage} from "../page/index";
+import {LoginPage} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productsListPage = new ProducsList();
@@ -12,13 +12,17 @@ const shippingStepPage = new ShippingStepPage();
 const paymentStepPage = new PaymentStepPage();
 
 describe("Buy a t-shirt", () => {
+  const email = "aperdomobo@gmail.com";
+  const psw = "WorkshopProtractor";
+  const expectedMessage = "Your order on My Store is complete.";
+
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
     productsListPage.clickAddToCartBtn();
     shoppingCartPage.clickProceedBtn();
     shoppingCartPage.clickSecondCheckout();
-    loginPage.enterCredentials();
+    loginPage.login(email, psw);
     loginPage.clickSubmitBtn();
     // // Debes completar la prueba ...
     addressStepPage.clickAddressCheck();
@@ -26,6 +30,6 @@ describe("Buy a t-shirt", () => {
     shippingStepPage.clickShippingCheckout();
     paymentStepPage.clickPayment();
     paymentStepPage.clickConfirmOrderBtn();
-    paymentStepPage.assertParagraph();
+    paymentStepPage.getParagraph().should("have.text", expectedMessage);
   });
 });

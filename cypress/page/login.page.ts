@@ -1,17 +1,17 @@
 class LoginPage{
-    private email: string;
-    private psw: string;
     private submitBtn: string;
+    private emailSelector: string;
+    private pswSelector:string;
 
     constructor(){
-        this.email = "aperdomobo@gmail.com",
-        this.psw = "WorkshopProtractor",
-        this.submitBtn = "#SubmitLogin > span"
+        this.submitBtn = "#SubmitLogin > span";
+        this.emailSelector = "#email";
+        this.pswSelector = "#passwd";
     }
 
-    public enterCredentials(): void{
-        cy.get("#email").type(this.email);
-        cy.get("#passwd").type(this.psw);
+    public login(email:string, psw:string): void{
+        cy.get(this.emailSelector).type(email);
+        cy.get(this.pswSelector).type(psw);
     }
 
     public clickSubmitBtn(): void{
