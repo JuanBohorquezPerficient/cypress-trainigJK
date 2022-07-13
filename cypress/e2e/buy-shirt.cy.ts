@@ -1,8 +1,5 @@
-
-import {AddressStepPage, MenuContentPage} from "../page/index";
-import {ProducsList, ShippingStepPage} from "../page/index";
-import {ShoppingCart, PaymentStepPage} from "../page/index";
-import {LoginPage} from "../page/index";
+import {AddressStepPage, MenuContentPage, ProducsList,
+  ShippingStepPage, ShoppingCart, PaymentStepPage, LoginPage} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productsListPage = new ProducsList();
