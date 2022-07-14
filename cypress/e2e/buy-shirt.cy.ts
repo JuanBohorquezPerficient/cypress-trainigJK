@@ -30,7 +30,7 @@ describe("Buy a t-shirt", () => {
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
-    productsListPage.clickAddToCartBtn();
+    productsListPage.clickAddToCartBtn("Faded Short Sleeve T-shirts");
     shoppingCartPage.clickProceedBtn();
     shoppingCartPage.clickSecondCheckout();
     loginPage.login(email, psw);
