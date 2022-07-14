@@ -15,9 +15,11 @@ class MenuContentPage {
         cy.get(this.tShirtMenu).click()
     }
 
+
     public goToDressesMenu(): void{
         cy.get('.sf-menu > :nth-child(2) > .sf-with-ul').click();
     }
+
 }
 
 export { MenuContentPage }
