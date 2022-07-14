@@ -1,6 +1,7 @@
 import {AddressStepPage, MenuContentPage, ProducsList,
   ShippingStepPage, ShoppingCart, PaymentStepPage, LoginPage} from "../page/index";
 
+
 describe("Buy a t-shirt", () => {
   let menuContentPage: MenuContentPage;
   let addressStepPage: AddressStepPage;
@@ -25,6 +26,7 @@ describe("Buy a t-shirt", () => {
   });
 
 
+
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
@@ -33,6 +35,7 @@ describe("Buy a t-shirt", () => {
     shoppingCartPage.clickSecondCheckout();
     loginPage.login(email, psw);
     loginPage.clickSubmitBtn();
+
     addressStepPage.clickAddressCheck();
     shippingStepPage.clickAgreement();
     shippingStepPage.clickShippingCheckout();
