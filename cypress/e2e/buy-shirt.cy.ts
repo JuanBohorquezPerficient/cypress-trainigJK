@@ -1,18 +1,29 @@
 import {AddressStepPage, MenuContentPage, ProducsList,
   ShippingStepPage, ShoppingCart, PaymentStepPage, LoginPage} from "../page/index";
 
-const menuContentPage = new MenuContentPage();
-const productsListPage = new ProducsList();
-const shoppingCartPage = new ShoppingCart();
-const loginPage = new LoginPage();
-const addressStepPage = new AddressStepPage();
-const shippingStepPage = new ShippingStepPage();
-const paymentStepPage = new PaymentStepPage();
-
 describe("Buy a t-shirt", () => {
+  let menuContentPage: MenuContentPage;
+  let addressStepPage: AddressStepPage;
+  let productsListPage: ProducsList;
+  let shoppingCartPage: ShoppingCart;
+  let loginPage: LoginPage;
+  let shippingStepPage: ShippingStepPage;
+  let paymentStepPage: PaymentStepPage;
+
   const email = "aperdomobo@gmail.com";
   const psw = "WorkshopProtractor";
   const expectedMessage = "Your order on My Store is complete.";
+
+  before(()=>{
+    menuContentPage = new MenuContentPage();
+    productsListPage = new ProducsList();
+    shoppingCartPage = new ShoppingCart();
+    loginPage = new LoginPage();
+    addressStepPage = new AddressStepPage();
+    shippingStepPage = new ShippingStepPage();
+    paymentStepPage = new PaymentStepPage();
+  });
+
 
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
@@ -22,7 +33,6 @@ describe("Buy a t-shirt", () => {
     shoppingCartPage.clickSecondCheckout();
     loginPage.login(email, psw);
     loginPage.clickSubmitBtn();
-    // // Debes completar la prueba ...
     addressStepPage.clickAddressCheck();
     shippingStepPage.clickAgreement();
     shippingStepPage.clickShippingCheckout();
