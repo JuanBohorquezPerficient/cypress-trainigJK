@@ -5,11 +5,11 @@ describe("the user navigates to the dresses page", () => {
   let menuContentPage: MenuContentPage;
   let dressesListPage: DressesListPage;
   const names: string[] = [
-    "\n\t\t\t\t\t\t\tPrinted Dress\n\t\t\t\t\t\t",
-    "\n\t\t\t\t\t\t\tPrinted Dress\n\t\t\t\t\t\t",
+    "Printed Dress",
+    "Printed Dress",
     "Printed Summer Dress",
     "Printed Summer Dress",
-    "\n\t\t\t\t\t\t\tPrinted Chiffon Dress\n\t\t\t\t\t\t",
+    "Printed Chiffon Dress",
 
   ];
 

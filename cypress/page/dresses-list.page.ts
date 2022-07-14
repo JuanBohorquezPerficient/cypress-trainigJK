@@ -18,7 +18,7 @@ class DressesListPage {
   
     validateItemsNames(names: string[]){
       cy.get(this.dressName).each((item, index) => {
-        cy.wrap(item).should("contain.text", names[index])
+        expect(item.text().trim()).to.contain(names[index])
       })
     }
   
