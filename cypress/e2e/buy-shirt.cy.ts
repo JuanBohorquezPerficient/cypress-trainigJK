@@ -25,7 +25,6 @@ describe("Buy a t-shirt", () => {
     paymentStepPage = new PaymentStepPage();
   });
 
-
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
