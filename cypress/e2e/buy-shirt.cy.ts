@@ -26,7 +26,6 @@ describe("Buy a t-shirt", () => {
   });
 
 
-
   it("then should be bought a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
