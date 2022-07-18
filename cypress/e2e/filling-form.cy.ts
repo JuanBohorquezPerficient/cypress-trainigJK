@@ -20,7 +20,7 @@ describe("fill and submit a form", ()=>{
     personalFormPage.enterToTargetUrl();
     personalFormPage.fillForm(personalInformation); // tasks method
 
-    cy.get('.modal-body') // Questions or Assertions module
+    cy.get(".modal-body") // Questions or Assertions module
         .should("contain.text", `${personalInformation.name} ${personalInformation.lastName}`)
         .should("contain.text", personalInformation.email)
         .should("contain.text", personalInformation.gender)

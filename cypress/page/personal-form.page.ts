@@ -9,11 +9,11 @@ class PersonalFormPage{
     private stateList: string;
     private hobbiesOption1: string;
     private hobbiesOption2: string;
-    private submitBtn: string;
     private genderType: string;
     private choosenState: string;
     private choosenCity: string;
     private cityList: string;
+    private form: string;
 
     personalInformation = {
         name: "Holmes",
@@ -35,12 +35,12 @@ class PersonalFormPage{
         this.currentAddressField = "#currentAddress";
         this.stateList = "#state > div > div.css-1hwfws3 > div.css-1wa3eu0-placeholder";
         this.cityList = "#city > div > div.css-1hwfws3 > div.css-1wa3eu0-placeholder"
-        this.submitBtn = "#submit";
         this.hobbiesOption1 = '#hobbiesWrapper > .col-md-9 > :nth-child(2) > .custom-control-label';
         this.hobbiesOption2 = '#hobbiesWrapper > .col-md-9 > :nth-child(3) > .custom-control-label';
         this.genderType = "Male";
         this.choosenState = "#react-select-3-option-0";
         this.choosenCity = "#react-select-4-option-0";
+        this.form = '#userForm';
     }
 
     public enterToTargetUrl(): void{
@@ -68,7 +68,7 @@ class PersonalFormPage{
         cy.get(this.choosenState).click({force:true});
         cy.get(this.cityList).click({force:true});
         cy.get(this.choosenCity).click({force:true});
-        cy.get(this.submitBtn).click({force:true});
+        cy.get(this.form).submit();
     }
 }
 
