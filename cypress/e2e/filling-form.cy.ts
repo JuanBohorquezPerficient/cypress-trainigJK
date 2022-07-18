@@ -1,8 +1,9 @@
 import {PersonalFormPage} from "../page/personal-form.page";
+import {FormAssertions} from "../e2e/questions/form-assertions.page";
 
 describe("fill and submit a form", ()=>{
   let personalFormPage: PersonalFormPage;
-  const city = "NCR Delhi";
+  let formAssertionsObj: FormAssertions;
   const personalInformation = {
     name: "Holmes",
     lastName: "Salazar",
@@ -14,19 +15,13 @@ describe("fill and submit a form", ()=>{
   };
   before(()=>{
     personalFormPage = new PersonalFormPage();
+    formAssertionsObj = new FormAssertions();
   });
 
   it("Then it should fill the form", ()=>{
     personalFormPage.enterToTargetUrl();
     personalFormPage.fillForm(personalInformation); // tasks method
 
-    cy.get(".modal-body") // Questions or Assertions module
-        .should("contain.text", `${personalInformation.name} ${personalInformation.lastName}`)
-        .should("contain.text", personalInformation.email)
-        .should("contain.text", personalInformation.gender)
-        .should("contain.text", personalInformation.mobileNumber)
-        .should("contain.text", "Reading, Music")
-        .should("contain.text", personalInformation.currentAddress)
-        .should("contain.text", city);
+    formAssertionsObj.assertPageOutput(); // Questions or assertions
   });
 });

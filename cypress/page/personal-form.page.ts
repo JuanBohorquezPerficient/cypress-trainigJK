@@ -1,3 +1,4 @@
+import {persona1, personalInfo} from "./index"
 class PersonalFormPage{
     private formUrl: string;
     private nameField: string;
@@ -14,16 +15,6 @@ class PersonalFormPage{
     private choosenCity: string;
     private cityList: string;
     private form: string;
-
-    personalInformation = {
-        name: "Holmes",
-        lastName: "Salazar",
-        email: "hibarras@email.com",
-        gender: "Male",
-        mobileNumber: "3656589156",
-        hobbies: ["Music", "Reading"],
-        currentAddress: "Av siempreViva # 123",
-      };
 
     constructor(){
         this.formUrl = "https://demoqa.com/automation-practice-form";
@@ -47,15 +38,7 @@ class PersonalFormPage{
         cy.visit(this.formUrl);
     }
 
-    public fillForm(personalInformation : {
-        name: string,
-        lastName: string,
-        email: string,
-        gender: string,
-        mobileNumber: string,
-        hobbies: string[],
-        currentAddress: string
-    }): void{
+    public fillForm(personalInformation: personalInfo): void{
         cy.get(this.nameField).type(personalInformation.name);
         cy.get(this.lastNameField).type(personalInformation.lastName);
         cy.get(this.emailField).type(personalInformation.email);
