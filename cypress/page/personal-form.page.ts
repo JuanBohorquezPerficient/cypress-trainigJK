@@ -1,4 +1,13 @@
-import {persona1, personalInfo} from "./index"
+type userData = {
+    name: string,
+    lastName: string,
+    email: string,
+    gender: string,
+    mobileNumber: string,
+    hobbies: string[],
+    currentAddress: string,
+    city: string
+}
 class PersonalFormPage{
     private formUrl: string;
     private nameField: string;
@@ -38,7 +47,7 @@ class PersonalFormPage{
         cy.visit(this.formUrl);
     }
 
-    public fillForm(personalInformation: personalInfo): void{
+    public fillForm(personalInformation: userData): void{
         cy.get(this.nameField).type(personalInformation.name);
         cy.get(this.lastNameField).type(personalInformation.lastName);
         cy.get(this.emailField).type(personalInformation.email);
@@ -53,6 +62,17 @@ class PersonalFormPage{
         cy.get(this.choosenCity).click({force:true});
         cy.get(this.form).submit();
     }
+
+    public validateFormInfo(personalInformation: userData) {
+        cy.get(".modal-body") // Questions or Assertions module
+            .should("contain.text", `${personalInformation.name} ${personalInformation.lastName}`)
+            .should("contain.text", personalInformation.email)
+            .should("contain.text", personalInformation.gender)
+            .should("contain.text", personalInformation.mobileNumber)
+            .should("contain.text", "Reading, Music")
+            .should("contain.text", personalInformation.currentAddress)
+            .should("contain.text", personalInformation.city);
+      }
 }
 
 export{PersonalFormPage}
