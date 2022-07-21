@@ -1,18 +1,19 @@
 import {Upload} from "../page/index";
 
-let upload: Upload;
+const upload: Upload = new Upload();
 
 describe("Upload and download a file", ()=>{
+  let txt: {targetFile: string};
   before(()=>{
-    upload = new Upload();
+    cy.fixture("upload").then((texto)=>{
+      txt = texto;
+    });
   });
 
   it("Should upload a file", ()=>{
-    const targetFile = "example.json";
-
     upload.visitTestPage();
-    upload.uploadFile(targetFile);
+    upload.uploadFile(txt.targetFile);
 
-    upload.getTitle().should("contain.text", targetFile);
+    upload.getTitle(txt.targetFile);
   });
 });

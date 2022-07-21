@@ -1,12 +1,16 @@
 class Upload{
     private testUrl: string;
-    private titleContent: string;
     private fileContainer: string;
+    private submitBtn: string;
+    private messageCont: string;
+    private message: string;
     
     constructor(){
-        this.testUrl = "http://demo.automationtesting.in/FileUpload.html";
-        this.titleContent = ".file-footer-caption";
-        this.fileContainer = "#input-4";
+        this.testUrl = "https://the-internet.herokuapp.com/upload";
+        this.fileContainer = "#file-upload";
+        this.submitBtn = "#file-submit";
+        this.messageCont = "#uploaded-files";
+        this.message = "textForTest.txt";
     }
 
     public visitTestPage(){
@@ -15,11 +19,15 @@ class Upload{
 
     public uploadFile(targetFile: string): void{
         cy.get(this.fileContainer).attachFile(targetFile);
+        cy.get(this.submitBtn).click({force:true})
     }
 
-    public getTitle(){
-        return cy.get(this.titleContent);
+    public getTitle(txtTitle:string): Cypress.Chainable{
+        return cy.get(this.messageCont).each((item, index) => {
+            expect(item.text().trim()).to.contain(this.message)
+          });
     }
+    
 }
 
 export {Upload}
