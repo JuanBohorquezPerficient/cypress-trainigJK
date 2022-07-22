@@ -11,23 +11,22 @@ class Upload{
         this.submitBtn = "#file-submit";
         this.messageCont = "#uploaded-files";
         this.message = "textForTest.txt";
-    }
+    };
 
     public visitTestPage(){
         cy.visit(this.testUrl);
-    }
+    };
 
     public uploadFile(targetFile: string): void{
         cy.get(this.fileContainer).attachFile(targetFile);
         cy.get(this.submitBtn).click({force:true})
-    }
+    };
 
     public getTitle(txtTitle:string): Cypress.Chainable{
-        return cy.get(this.messageCont).each((item, index) => {
-            expect(item.text().trim()).to.contain(this.message)
-          });
-    }
-    
-}
+        return cy.get(this.messageCont).contains(this.message)
+    };
+};
+
+
 
 export {Upload}

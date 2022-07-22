@@ -3,17 +3,14 @@ import {Upload} from "../page/index";
 const upload: Upload = new Upload();
 
 describe("Upload and download a file", ()=>{
-  let txt: {targetFile: string};
+  const targetFile = "textForTest.txt";
   before(()=>{
-    cy.fixture("upload").then((texto)=>{
-      txt = texto;
-    });
+    cy.fixture("upload");
   });
 
   it("Should upload a file", ()=>{
     upload.visitTestPage();
-    upload.uploadFile(txt.targetFile);
-
-    upload.getTitle(txt.targetFile);
+    upload.uploadFile(targetFile);
+    upload.getTitle(targetFile);
   });
 });
