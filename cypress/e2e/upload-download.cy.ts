@@ -4,6 +4,7 @@ const upload: Upload = new Upload();
 
 describe("Upload and download a file", ()=>{
   const targetFile = "textForTest.txt";
+  const expectedText = "textForTest";
   before(()=>{
     cy.fixture("upload");
   });
@@ -11,6 +12,6 @@ describe("Upload and download a file", ()=>{
   it("Should upload a file", ()=>{
     upload.visitTestPage();
     upload.uploadFile(targetFile);
-    upload.getTitle(targetFile);
+    upload.getTitle().should("contain.text", expectedText);
   });
 });

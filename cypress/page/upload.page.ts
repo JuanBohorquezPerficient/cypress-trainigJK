@@ -22,11 +22,9 @@ class Upload{
         cy.get(this.submitBtn).click({force:true})
     };
 
-    public getTitle(txtTitle:string): Cypress.Chainable{
-        return cy.get(this.messageCont).contains(this.message)
+    public getTitle(){
+        return cy.get(this.messageCont);
     };
 };
-
-
-
+                                                                                                                              
 export {Upload}
