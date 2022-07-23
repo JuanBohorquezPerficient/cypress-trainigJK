@@ -1,17 +1,26 @@
 import {Upload} from "../page/index";
+import {DownloadPage} from "../page/index";
 
 const upload: Upload = new Upload();
+const download: DownloadPage = new DownloadPage();
 
 describe("Upload and download a file", ()=>{
   const targetFile = "textForTest.txt";
-  const expectedText = "textForTest";
+  const expectedUploadText = "textForTest";
+  const expectedDownloadText = "descargado, perrete";
   before(()=>{
     cy.fixture("upload");
   });
 
-  it("Should upload a file", ()=>{
-    upload.visitTestPage();
-    upload.uploadFile(targetFile);
-    upload.getTitle().should("contain.text", expectedText);
+  // it("Should upload a file", ()=>{
+  //   upload.visitTestPage();
+  //   upload.uploadFile(targetFile);
+  //   upload.getTitle().should("contain.text", expectedUploadText);
+  // });
+
+  it("Should download a file", ()=>{
+    download.visitPage();
+    download.downloadFile();
+    download.verifyDownloadFileContent();
   });
 });

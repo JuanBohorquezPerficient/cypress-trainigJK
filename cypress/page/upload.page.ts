@@ -3,14 +3,12 @@ class Upload{
     private fileContainer: string;
     private submitBtn: string;
     private messageCont: string;
-    private message: string;
     
     constructor(){
         this.testUrl = "https://the-internet.herokuapp.com/upload";
         this.fileContainer = "#file-upload";
         this.submitBtn = "#file-submit";
-        this.messageCont = "#uploaded-files";
-        this.message = "textForTest.txt";
+        this.messageCont = "#uploaded-files";  
     };
 
     public visitTestPage(){
