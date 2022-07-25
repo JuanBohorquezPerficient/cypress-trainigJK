@@ -1,4 +1,5 @@
 import {Upload} from "../page/index";
+
 import {DownloadPage} from "../page/index";
 
 const upload: Upload = new Upload();
@@ -8,6 +9,7 @@ describe("Upload and download a file", ()=>{
   const targetFile = "textForTest.txt";
   const expectedUploadText = "textForTest";
   const expectedFileName = "sampleFile.jpeg";
+
   before(()=>{
     cy.fixture("upload");
   });
