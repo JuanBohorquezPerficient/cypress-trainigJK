@@ -1,5 +1,4 @@
 import {Upload} from "../page/index";
-
 import {DownloadPage} from "../page/index";
 
 const upload: Upload = new Upload();
