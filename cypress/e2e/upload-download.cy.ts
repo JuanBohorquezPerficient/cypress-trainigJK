@@ -7,20 +7,20 @@ const download: DownloadPage = new DownloadPage();
 describe("Upload and download a file", ()=>{
   const targetFile = "textForTest.txt";
   const expectedUploadText = "textForTest";
-  const expectedDownloadText = "descargado, perrete";
+  const expectedFileName = "sampleFile.jpeg";
   before(()=>{
     cy.fixture("upload");
   });
 
-  // it("Should upload a file", ()=>{
-  //   upload.visitTestPage();
-  //   upload.uploadFile(targetFile);
-  //   upload.getTitle().should("contain.text", expectedUploadText);
-  // });
+  it("Should upload a file", ()=>{
+    upload.visitTestPage();
+    upload.uploadFile(targetFile);
+    upload.getTitle().should("contain.text", expectedUploadText);
+  });
 
   it("Should download a file", ()=>{
     download.visitPage();
     download.downloadFile();
-    download.verifyDownloadFileContent();
+    download.verifyDownloadFileContent(expectedFileName);
   });
 });
